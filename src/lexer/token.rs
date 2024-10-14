@@ -144,11 +144,11 @@ pub enum TokenKind {
     // Other
     #[regex("[a-zA-Z_][a-zA-Z0-9_]*")]
     Identifier,
-    #[regex("[0-9]+")]
+    #[regex("\\-?[0-9]+")]
     IntConstant,
-    #[regex("[0-9]+u")]
+    #[regex("\\-?[0-9]+u")]
     UintConstant,
-    #[regex("[0-9]*\\.[0-9]+|[0-9]+\\.[0-9]*(f)?")]
+    #[regex("\\-?[0-9]*\\.[0-9]+|[0-9]+\\.[0-9]*(f)?")]
     FloatConstant,
     #[regex("true|false")]
     BoolConstant,
