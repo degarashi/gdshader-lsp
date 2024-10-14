@@ -349,8 +349,20 @@ pub fn make_builtin_functions() -> HashMap<String, FunctionInfo> {
             "Performs a fused multiply-add operation: (a * b + c) (faster than doing
             it manually)."
         ),
-        // STEP
-        // SMOOTH_STEP
+        builtin_function!(
+            step [
+                (vec_type a, vec_type b,) -> vec_type,
+                (float a, vec_type b,) -> vec_type,
+            ]
+            "(vector version) b[[i]] < a[[i]] ? 0.0 : 1.0.\n(float version) b[[i]] < a ? 0.0 : 1.0."
+        ),
+        builtin_function!(
+            smoothstep [
+                (vec_type a, vec_type b, vec_type c,) -> vec_type,
+                (float a, float b, vec_type c,) -> vec_type,
+            ]
+            "Hermite interpolate between a and b by c."
+        ),
         builtin_function!(
             isnan [(vec_type x,) -> bvec_type,]
             "Returns true if scalar or vector component is NaN."
